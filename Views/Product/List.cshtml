@@ -1,0 +1,32 @@
+@model IEnumerable<ProdMvc.Models.Product>
+
+<h1>Product Listing</h1>
+<hr>
+@Html.ActionLink("Add Record","Create")
+<hr>
+<table class='table'>
+    <thead>
+        <th>@Html.DisplayNameFor(m=>m.Id)</th>
+        <th>@Html.DisplayNameFor(m=>m.Name)</th>
+        <th>@Html.DisplayNameFor(m=>m.Price)</th>
+        <th>@Html.DisplayNameFor(m=>m.Stock)</th>
+        </th>
+    </thead>
+
+    <tbody>
+       
+        @foreach (var data in @Model)
+        {
+            <tr>
+                <td>@data.Id</td>
+                <td>@data.Name</td>
+                <td>@data.Price</td>
+                <td>@data.Stock</td>
+                <td>@Html.ActionLink("Display","Display",new {id=@data.Id})</td>&nbsp;
+                <td>@Html.ActionLink("Edit","Edit",new {id=@data.Id})</td>
+                <td>@Html.ActionLink("Delete","Delete",new {id=@data.Id})</td>
+            </tr>
+            
+        }
+    </tbody>
+</table>
